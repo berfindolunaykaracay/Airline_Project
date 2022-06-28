@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -27,6 +28,8 @@ public class Flight {
     private String departureTime;
     private int duration;
 
+    @ManyToMany
+    Set<Crew> clist;
 
 
 }

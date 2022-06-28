@@ -17,9 +17,9 @@ public class Passenger {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String gender;
     private String lastName;
     private String firstName;
+    private String gender;
     private String profession;
     private Date birthDate;
     private String passengerType;
