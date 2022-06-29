@@ -32,8 +32,8 @@ public class TicketService {
 
     public void updateCrew(Long id, Ticket ticket) {
         Ticket oldTicket = ticketRepository.findById(id).get();
-        //oldTicket.setCancel(ticket.get);
-       // oldTicket.setDelay(ticket.get);
+        oldTicket.setCancel(ticket.getCancel());
+        oldTicket.setDelay(ticket.getDelay());
         oldTicket.setClassType(ticket.getClassType());
         oldTicket.setTcolumn(ticket.getTcolumn());
         oldTicket.setTrow(ticket.getTrow());

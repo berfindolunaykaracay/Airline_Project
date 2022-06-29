@@ -23,7 +23,7 @@ public class Passenger {
     private String lastName;
     private String gender;
     private String profession;
-    //private Date birthDate;
+    private Date birthDate;
     private String passengerType;
     private String email;
     private int miles;

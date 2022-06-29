@@ -18,7 +18,7 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "flight_id", nullable = false)
     private Long flight_id;
-    //private Date fdate;
+    private Date flightdate;
     private String airplaneType;
     private String connectingFlight;
     private String ftime;
