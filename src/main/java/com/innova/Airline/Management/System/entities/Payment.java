@@ -19,7 +19,7 @@ public class Payment {
     @Column(name = "cardno", nullable = false)
     private Long cardno;
 
-    private Date cardExpressionDate;
+   // private Date cardExpressionDate;
     private String cardname;
     private int cardSecurityNumber;
     private int price;

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
@@ -17,11 +18,12 @@ public class Passenger {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String lastName;
+    @Column(unique = true)
     private String firstName;
+    private String lastName;
     private String gender;
     private String profession;
-    private Date birthDate;
+    //private Date birthDate;
     private String passengerType;
     private String email;
     private int miles;

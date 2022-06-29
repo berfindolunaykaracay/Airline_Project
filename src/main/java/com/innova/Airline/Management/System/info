@@ -1,0 +1,97 @@
+http://localhost:8080/flight/add
+{
+"airplaneType": "boeing737",
+"connectingFlight": "yes",
+"ftime": "13.10",
+"airlineName":"Pegasus",
+"fromLocation": "Ankara",
+"toLocation": "İstanbul",
+"departureTime":"14.10",
+"duration":"60"
+}
+
+http://localhost:8080/flight/update/8
+{
+"airplaneType": "boeing737",
+"connectingFlight": "no",
+"ftime": "13.50",
+"airlineName":"Pegasus",
+"fromLocation": "Ankara",
+"toLocation": "İstanbul",
+"departureTime":"15.00",
+"duration":"70"
+}
+
+http://localhost:8080/passenger/add
+{
+"firstName": "mert",
+"lastName": "suerkan",
+"gender": "male",
+"profession":"doctor",
+"passengerType": "bussiness",
+"email": "mert@gmail.com",
+"miles":"1000",
+"phoeNumber":"56678"
+}
+
+http://localhost:8080/passenger/update/4
+{
+"firstName": "mert",
+"lastName": "mert",
+"gender": "male",
+"profession":"",
+"passengerType": "economic",
+"email": "mt@gmail.com",
+"miles":"100",
+"phoeNumber":"56678"
+}
+
+http://localhost:8080/crew/add
+{
+"email": "veli@gmail.com",
+"crewgender": "male",
+"crewname": "veli",
+"role":"pilot",
+"salary": 10000
+}
+
+http://localhost:8080/crew/update/10
+{
+"email": "vl@gmail.com",
+"crewgender": "male",
+"crewname": "veli",
+"role":"host",
+"salary": 20000
+}
+
+http://localhost:8080/payment/add
+{
+"cardname": "ali yilmaz",
+"cardSecurityNumber": 456,
+"price": 300
+}
+
+http://localhost:8080/payment/update/12
+{
+"cardname": "murat yilmaz",
+"cardSecurityNumber": 456,
+"price": 3000
+}
+
+http://localhost:8080/ticket/add
+{
+"cancel": false,
+"delay":false,
+"classType":"bussiness",
+"tcolumn":"c",
+"trow":12,
+"Gate":"17A"
+}
+
+http://localhost:8080/ticket/update/14
+{
+"classType":"bussiness",
+"tcolumn":"b",
+"trow":20,
+"Gate":"17C"
+}
