@@ -1,5 +1,6 @@
 package com.innova.Airline.Management.System.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +24,7 @@ public class Passenger {
     private String lastName;
     private String gender;
     private String profession;
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private Date birthDate;
     private String passengerType;
     private String email;
