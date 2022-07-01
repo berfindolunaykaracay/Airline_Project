@@ -31,6 +31,7 @@ public class PaymentService {
 
     public void updatePayment(Long id, Payment payment) {
         Payment oldPayment = paymentRepository.findById(id).get();
+        oldPayment.setCardExpressionDate(payment.getCardExpressionDate());
         oldPayment.setCardname(payment.getCardname());
         oldPayment.setCardSecurityNumber(payment.getCardSecurityNumber());
         oldPayment.setPrice(payment.getPrice());

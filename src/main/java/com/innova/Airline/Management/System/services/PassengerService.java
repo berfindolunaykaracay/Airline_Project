@@ -41,6 +41,7 @@ public class PassengerService {
         oldPassenger.setLastName(passenger.getLastName());
         oldPassenger.setGender(passenger.getGender());
         oldPassenger.setProfession(passenger.getProfession());
+        oldPassenger.setBirthDate(passenger.getBirthDate());
         oldPassenger.setPassengerType(passenger.getPassengerType());
         oldPassenger.setEmail(passenger.getEmail());
         oldPassenger.setMiles(passenger.getMiles());

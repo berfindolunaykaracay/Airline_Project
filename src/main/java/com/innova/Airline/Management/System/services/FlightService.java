@@ -29,6 +29,7 @@ public class FlightService {
     }
     public void updateFlight(Long id, Flight flight) {
         Flight oldFlight = flightRepository.findById(id).get();
+        oldFlight.setFlightdate(flight.getFlightdate());
         oldFlight.setAirplaneType(flight.getAirplaneType());
         oldFlight.setConnectingFlight(flight.getConnectingFlight());
         oldFlight.setFtime(flight.getFtime());
