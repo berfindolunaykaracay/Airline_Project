@@ -13,6 +13,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/passenger")
+@CrossOrigin("*")
 public class PassengerController {
 
     @Autowired
