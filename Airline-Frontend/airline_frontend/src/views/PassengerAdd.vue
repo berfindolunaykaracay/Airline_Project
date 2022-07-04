@@ -27,15 +27,9 @@
         :picker-options="pickerOptions">
     </el-date-picker><br><br>
 
-    <p><b>Type</b></p>
-      <el-select v-model="passengerType" placeholder="Select">
-        <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-        </el-option>
-      </el-select><br><br>
+
+    <span class="demonstration"><b>Type</b></span><br><br>
+    <el-input placeholder="Type" v-model="passengerType"></el-input><br><br>
 
     <span class="demonstration"><b>Email</b></span><br><br>
     <el-input placeholder="Email" v-model="email"></el-input><br><br>
@@ -83,13 +77,7 @@ export default {
           }
         }]
       },
-      options: [{
-        passengerType: 'Adult',
-        label: 'Adult'
-      },{
-        passengerType: 'Child',
-        label: 'Child'
-      }],
+
 
 
       passengerType: '',
