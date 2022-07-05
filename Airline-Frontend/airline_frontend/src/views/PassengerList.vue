@@ -109,9 +109,7 @@ export default {
 
     async listPassenger() {
 
-
-
-     axios.get("http://localhost:8080/passenger/read")
+     await axios.get("http://localhost:8080/passenger/read")
             .then(res=>this.passsengerList=res.data)
           .catch(err => console.log(err));
     }
