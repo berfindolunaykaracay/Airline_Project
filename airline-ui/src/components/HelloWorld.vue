@@ -1,151 +1,137 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
-        </p>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+  <v-card
+      className="mx-auto"
+      max-width="400"
+  >
+    <v-card
+        dark
+        flat
+    >
+      <v-btn
+          absolute
+          bottom
+          color="pink"
+          right
+          fab
       >
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+      <v-card-title className="pa-2 purple lighten-3">
+        <v-btn icon>
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+        <h3 className="text-h6 font-weight-light text-center grow">
+          Timeline
+        </h3>
+        <v-avatar>
+          <v-img
+              src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"></v-img>
+        </v-avatar>
+      </v-card-title>
+      <v-img
+          src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
+          gradient="to top, rgba(0,0,0,.44), rgba(0,0,0,.44)"
       >
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+        <v-container className="fill-height">
+          <v-row align="center">
+            <strong className="text-h1 font-weight-regular mr-6">8</strong>
+            <v-row justify="end">
+              <div className="text-h5 font-weight-light">
+                Monday
+              </div>
+              <div className="text-uppercase font-weight-light">
+                February 2015
+              </div>
+            </v-row>
+          </v-row>
+        </v-container>
+      </v-img>
+    </v-card>
+    <v-card-text className="py-0">
+      <v-timeline
+          align-top
+          dense
       >
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
+        <v-timeline-item
+            color="pink"
+            small
+        >
+          <v-row className="pt-1">
+            <v-col cols="3">
+              <strong>5pm</strong>
+            </v-col>
+            <v-col>
+              <strong>New Icon</strong>
+              <div className="text-caption">
+                Mobile App
+              </div>
+            </v-col>
+          </v-row>
+        </v-timeline-item>
 
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
-  </v-container>
+        <v-timeline-item
+            color="teal lighten-3"
+            small
+        >
+          <v-row className="pt-1">
+            <v-col cols="3">
+              <strong>3-4pm</strong>
+            </v-col>
+            <v-col>
+              <strong>Design Stand Up</strong>
+              <div className="text-caption mb-2">
+                Hangouts
+              </div>
+              <v-avatar>
+                <v-img
+                    src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
+                ></v-img>
+              </v-avatar>
+              <v-avatar>
+                <v-img
+                    src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
+                ></v-img>
+              </v-avatar>
+              <v-avatar>
+                <v-img
+                    src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
+                ></v-img>
+              </v-avatar>
+            </v-col>
+          </v-row>
+        </v-timeline-item>
+
+        <v-timeline-item
+            color="pink"
+            small
+        >
+          <v-row className="pt-1">
+            <v-col cols="3">
+              <strong>12pm</strong>
+            </v-col>
+            <v-col>
+              <strong>Lunch break</strong>
+            </v-col>
+          </v-row>
+        </v-timeline-item>
+
+        <v-timeline-item
+            color="teal lighten-3"
+            small
+        >
+          <v-row className="pt-1">
+            <v-col cols="3">
+              <strong>9-11am</strong>
+            </v-col>
+            <v-col>
+              <strong>Finish Home Screen</strong>
+              <div className="text-caption">
+                Web App
+              </div>
+            </v-col>
+          </v-row>
+        </v-timeline-item>
+      </v-timeline>
+    </v-card-text>
+  </v-card>
 </template>
-
-<script>
-  export default {
-    name: 'HelloWorld',
-
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
-  }
-</script>
