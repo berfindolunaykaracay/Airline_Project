@@ -1,7 +1,7 @@
 <template>
   <validation-observer
       ref="observer"
-      v-slot="{ invalid }"
+
   >
     <form @submit.prevent="submit">
       <validation-provider
@@ -111,12 +111,21 @@
         ></v-text-field>
       </validation-provider>
 
-
-      <v-btn
-          class="mr-4"
-          type="submit"
-          :disabled="invalid"
+      <validation-provider
+          v-slot="{ errors }"
+          name="Password"
       >
+        <v-text-field
+            v-model="password"
+
+            :error-messages="errors"
+            label="Password"
+            required
+        ></v-text-field>
+      </validation-provider>
+
+
+      <v-btn @click="addPassenger">
         submit
       </v-btn>
       <v-btn @click="clear">
@@ -172,6 +181,9 @@ export default {
     miles: '',
     phoneNumber: '',
     email: '',
+    password: '',
+
+
   }),
 
   methods: {
@@ -186,10 +198,11 @@ export default {
         email : this.email,
         miles : this.miles,
         phoneNumber : this.phoneNumber,
+        password : this.password,
       }
       await axios({
         method:'post',
-        url:"http://localhost:8080/passenger/add",
+        url:"http://localhost:8080/passenger/add/",
         data:JSON.stringify(newPassenger),
         headers:{
           'Content-Type':'application/json'
@@ -205,7 +218,8 @@ export default {
           .catch(err => console.log(err));
     }
   },
-
+  mounted() {
+  },
   submit () {
     this.$refs.observer.validate()
   },
@@ -218,6 +232,7 @@ export default {
     this.miles = ''
     this.phoneNumber = ''
     this.email = ''
+    this.password = ''
     this.$refs.observer.reset()
   },
 

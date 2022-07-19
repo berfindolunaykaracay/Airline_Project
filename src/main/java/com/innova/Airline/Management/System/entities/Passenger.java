@@ -30,5 +30,6 @@ public class Passenger {
     private String email;
     private int miles;
     private String phoneNumber;
+    private String password;
 
 }

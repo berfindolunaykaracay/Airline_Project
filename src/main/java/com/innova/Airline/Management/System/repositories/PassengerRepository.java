@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface PassengerRepository extends JpaRepository <Passenger,Long> {
     Passenger findByFirstName(String firstname);
 
+    Passenger findByEmail(String email);
+
     void deleteByFirstName(String firstname);
 }

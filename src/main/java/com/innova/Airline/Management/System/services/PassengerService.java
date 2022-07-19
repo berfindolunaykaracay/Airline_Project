@@ -46,6 +46,7 @@ public class PassengerService {
         oldPassenger.setEmail(passenger.getEmail());
         oldPassenger.setMiles(passenger.getMiles());
         oldPassenger.setPhoneNumber(passenger.getPhoneNumber());
+        oldPassenger.setPassword(passenger.getPassword());
         passengerRepository.save(oldPassenger);
     }
 }

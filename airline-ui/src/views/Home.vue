@@ -136,6 +136,7 @@
                     ></v-text-field>
                   </v-col>
 
+
                 </v-row>
               </v-container>
             </v-card-text>
@@ -235,6 +236,7 @@ export default {
       email: '',
       miles: 0,
       phoneNumber: '',
+
     },
     defaultItem: {
       firstName: '',
@@ -246,6 +248,7 @@ export default {
       email: '',
       miles: 0,
       phoneNumber: '',
+
     },
   }),
 

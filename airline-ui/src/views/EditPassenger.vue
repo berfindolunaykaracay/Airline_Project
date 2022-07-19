@@ -109,6 +109,18 @@
             required
         ></v-text-field>
       </validation-provider>
+      <validation-provider
+          v-slot="{ errors }"
+          name="Password"
+      >
+        <v-text-field
+            v-model="password"
+
+            :error-messages="errors"
+            label="Password"
+            required
+        ></v-text-field>
+      </validation-provider>
 
 
       <v-btn
@@ -172,6 +184,7 @@ export default {
     miles: '',
     phoneNumber: '',
     email: '',
+    password: '',
   }),
 
   methods: {
@@ -187,6 +200,7 @@ export default {
         email: this.email,
         miles:this.miles,
         phoneNumber:this.phoneNumber,
+        password: this.password,
       }
       await axios({
         method: 'post',
@@ -222,6 +236,7 @@ export default {
     this.email = this.passengers.email;
     this.miles = this.passengers.miles;
     this.phoneNumber = this.passengers.phoneNumber;
+    this.password = this.passengers.password;
 
   },
     submit () {
@@ -236,6 +251,7 @@ export default {
       this.miles = ''
       this.phoneNumber = ''
       this.email = ''
+      this.password = ''
       this.$refs.observer.reset()
     },
 
