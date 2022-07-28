@@ -1,15 +1,14 @@
 <template>
   <v-data-table
       :headers="headers"
-      :items="passengers"
-      sort-by="lastName"
-      class="elevation-1"
+      :items="flights"
+
   >
     <template v-slot:top>
       <v-toolbar
           flat
       >
-        <v-toolbar-title>Passenger List</v-toolbar-title>
+        <v-toolbar-title>Flights</v-toolbar-title>
 
         <v-divider
             class="mx-4"
@@ -21,17 +20,7 @@
             v-model="dialog"
             max-width="500px"
         >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-                color="primary"
-                dark
-                class="mb-2"
-                v-bind="attrs"
-                v-on="on"
-            >
-              New Passenger
-            </v-btn>
-          </template>
+
           <v-card>
             <v-card-title>
               <span class="text-h5">{{ formTitle }}</span>
@@ -46,8 +35,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.firstName"
-                        label="First Name"
+                        v-model="editedItem.airplaneType"
+                        label="Airplane Type"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -56,8 +45,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.lastName"
-                        label="Last Name"
+                        v-model="editedItem.connectingFlight"
+                        label="Connecting Flight"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -66,8 +55,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.gender"
-                        label="Gender"
+                        v-model="editedItem.ftime"
+                        label="Flight Time"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -76,8 +65,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.profession"
-                        label="Profession"
+                        v-model="editedItem.airlineName"
+                        label="Airline Name"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -86,8 +75,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.birthDate"
-                        label="birthDate"
+                        v-model="editedItem.fromLocation"
+                        label="From Location"
                     ></v-text-field>
                   </v-col>
 
@@ -98,8 +87,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.passengerType"
-                        label="Passenger Type"
+                        v-model="editedItem.toLocation"
+                        label="To Location"
                     ></v-text-field>
                   </v-col>
 
@@ -109,8 +98,8 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.email"
-                        label="Email"
+                        v-model="editedItem.departureTime"
+                        label="Departure Time"
                     ></v-text-field>
                   </v-col>
 
@@ -120,21 +109,12 @@
                       md="4"
                   >
                     <v-text-field
-                        v-model="editedItem.miles"
-                        label="Miles"
+                        v-model="editedItem.duration"
+                        label="Duration"
                     ></v-text-field>
                   </v-col>
 
-                  <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                  >
-                    <v-text-field
-                        v-model="editedItem.phoneNumber"
-                        label="Phone Number"
-                    ></v-text-field>
-                  </v-col>
+
 
 
                 </v-row>
@@ -160,17 +140,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+
       </v-toolbar>
     </template>
 
@@ -186,24 +156,50 @@
           mdi-pencil
         </v-icon>
       </router-link>
-      <v-icon
-          small
-          @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
+
+      <div class="text-center">
+        <v-dialog
+            v-model="dialog"
+            width="500"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+                color="red lighten-2"
+                dark
+                v-bind="attrs"
+                v-on="on"
+            >
+              Click Me
+            </v-btn>
+          </template>
+
+          <v-card>
+            <v-card-title class="text-h5 grey lighten-2">
+              Privacy Policy
+            </v-card-title>
+
+            <v-card-text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                  color="primary"
+                  text
+                  @click="dialog = false"
+              >
+                I accept
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </div>
+
     </template>
 
-
-
-    <template v-slot:no-data>
-      <v-btn
-          color="primary"
-          @click="initialize"
-      >
-        Reset
-      </v-btn>
-    </template>
   </v-data-table>
 </template>
 <script>
@@ -213,41 +209,40 @@ export default {
     dialog: false,
     dialogDelete: false,
     headers: [
-      {text: 'First Name', value: 'firstName'},
-      { text: 'Last Name', value: 'lastName' },
-      { text: 'Gender', value: 'gender' },
-      { text: 'Profession', value: 'profession' },
-      { text: 'Birth Date', value: 'birthDate' },
-      { text: 'Passenger Type', value: 'passengerType' },
-      { text: 'Email', value: 'email' },
-      { text: 'Miles', value: 'miles' },
-      { text: 'Phone Number', value: 'phoneNumber' },
+      {text: 'Airplane Type', value: 'airplaneType'},
+      { text: 'Connecting Flight', value: 'connectingFlight' },
+      { text: 'Flight Time', value: 'ftime' },
+      { text: 'Airline Name', value: 'airlineName' },
+      { text: 'From Location', value: 'fromLocation' },
+      { text: 'To Location', value: 'toLocation' },
+      { text: 'Departure Time', value: 'departureTime' },
+      { text: 'Duration', value: 'duration' },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
-    passengers: [],
+    flights: [],
     editedIndex: -1,
     editedItem: {
-      firstName: '',
-      lastName: '',
-      gender: '',
-      profession: '',
-      birthDate: '',
-      passengerType: '',
-      email: '',
-      miles: 0,
-      phoneNumber: '',
+      airplaneType: '',
+      connectingFlight: '',
+      ftime: '',
+      airlineName: '',
+      fromLocation: '',
+      toLocation: '',
+      departureTime: '',
+      duration: 0,
+
 
     },
     defaultItem: {
-      firstName: '',
-      lastName: '',
-      gender: '',
-      profession:'',
-      birthDate: '',
-      passengerType: '',
-      email: '',
-      miles: 0,
-      phoneNumber: '',
+      airplaneType: '',
+      connectingFlight: '',
+      ftime: '',
+      airlineName:'',
+      fromLocation: '',
+      toLocation: '',
+      departureTime: '',
+      duration: 0,
+
 
     },
   }),
@@ -268,43 +263,24 @@ export default {
   },
 
   created () {
-    this.listPassenger()
+    this.listFlights()
   },
 
   methods: {
-    async listPassenger() {
+    async listFlights() {
 
-      await axios.get("http://localhost:8080/passenger/read")
-          .then(res=>this.passengers=res.data)
+      await axios.get("http://localhost:8080/flight/read")
+          .then(res=>this.flights=res.data)
           .catch(err => console.log(err));
     },
 
     editItem (item) {
-      this.editedIndex = this.passengers.indexOf(item)
+      this.editedIndex = this.flights.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
-      console.log(item.firstName);
+      console.log(item.airplaneType);
     },
 
-    deleteItem (item) {
-      this.editedIndex = this.passengers.indexOf(item)
-      this.editedItem = Object.assign({}, item)
-      this.dialogDelete = true
-      console.log(this.passengers[this.editedIndex].id);
-      const index = this.passengers[this.editedIndex].id;
-      this.createProduct(index);
-    },
-    async createProduct(id) {
-      await axios.delete(`http://localhost:8080/passenger/delete/${id}`)
-          .then(response => {
-            console.log(response);
-            this.listPassenger();
-          });
-    },
-    deleteItemConfirm () {
-      this.passengers.splice(this.editedIndex, 1)
-      this.closeDelete()
-    },
 
     close () {
       this.dialog = false
@@ -324,9 +300,9 @@ export default {
 
     save () {
       if (this.editedIndex > -1) {
-        Object.assign(this.passengers[this.editedIndex], this.editedItem)
+        Object.assign(this.flights[this.editedIndex], this.editedItem)
       } else {
-        this.passengers.push(this.editedItem)
+        this.flights.push(this.editedItem)
       }
       this.close()
     },

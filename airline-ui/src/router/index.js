@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import EditPassenger from "../views/EditPassenger.vue";
 import AddPassenger from "../views/AddPassenger.vue";
 import Login from "../views/Login.vue";
+import Flights from "@/views/Flights";
+import FlightInfo from "@/views/FlightInfo";
 
 Vue.use(VueRouter)
 
@@ -36,6 +38,19 @@ const routes = [
     name: 'Login',
     component: Login
   },
+
+  {
+    path: '/Flights',
+    name: 'Flights',
+    component: Flights
+  },
+
+  {
+    path: '/FlightInfo',
+    name: 'FlightInfo',
+    component: FlightInfo
+  },
+
 ]
 
 const router = new VueRouter({
